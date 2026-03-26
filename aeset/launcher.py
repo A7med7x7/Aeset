@@ -16,10 +16,12 @@ def launch_after_effects(aep_path: pathlib.Path, ae_version: str = "Adobe After 
 
 def run_jsx_via_applescript(jsx_path: pathlib.Path, ae_version: str = "Adobe After Effects 2025"):
     """Triggers a .jsx script in After Effects using AppleScript DoScript."""
+    # Use absolute path and ensure it's escaped for JavaScript
     script_path = str(jsx_path.absolute())
     
-    # Use DoScript (one word) which is the standard AE AppleScript command
-    applescript = f'tell application "{ae_version}" to DoScript "{script_path}"'
+    # We send a piece of JavaScript code to AE: $.evalFile("/path/to/script.jsx");
+    js_to_run = f"$.evalFile('{script_path}');"
+    applescript = f'tell application "{ae_version}" to DoScript "{js_to_run}"'
     
     try:
         # Give AE a moment to open/load the project before sending the command
