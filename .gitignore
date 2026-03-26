@@ -205,3 +205,4 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+\n# Project specific\nTestProject/\nNike_Ident_2026/\n*.aep\n*.jsx
