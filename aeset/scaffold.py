@@ -35,8 +35,15 @@ var height      = {height};
 var fps         = {fps};
 var duration    = {duration};
 
-app.project.save();
+app.beginUndoGroup("Scaffold Project");
 
+// 1. Create Folder Structure in AE Project Panel
+var compFolder    = app.project.items.addFolder("_COMPS");
+var footageFolder = app.project.items.addFolder("_FOOTAGE");
+var assetsFolder  = app.project.items.addFolder("_ASSETS");
+var audioFolder   = app.project.items.addFolder("_AUDIO");
+
+// 2. Create the main Composition
 var comp = app.project.items.addComp(
     projectName,
     width,
@@ -46,7 +53,12 @@ var comp = app.project.items.addComp(
     fps
 );
 
+// 3. Move comp into the COMPS folder
+comp.parentFolder = compFolder;
+
 comp.openInViewer();
+app.endUndoGroup();
+
 app.project.save();
 """
     jsx_path = project_path / "project" / "setup.jsx"
