@@ -5,17 +5,32 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "aeset"
 version = "0.1.0"
-description = "After Effects Project Scaffolding Tool"
+description = "A macOS CLI tool for After Effects project scaffolding"
 readme = "README.md"
+authors = [
+    { name = "Ahmed Alghali", email = "a7medalghali777@gmail.com" }
+]
 requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS :: MacOS X",
+    "Topic :: Multimedia :: Video",
+]
 dependencies = [
     "click",
     "questionary",
 ]
 
+[project.urls]
+"Homepage" = "https://github.com/a7med7x7/aeset"
+"Bug Tracker" = "https://github.com/a7med7x7/aeset/issues"
+
 [project.scripts]
 aeset = "aeset.cli:main"
 
-[tool.setuptools.packages.find]
-where = ["."]
-include = ["aeset*"]
+[tool.setuptools]
+packages = ["aeset"]
+
+[tool.setuptools.package-data]
+aeset = ["templates/*.aep"]
