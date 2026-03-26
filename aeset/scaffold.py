@@ -55,12 +55,12 @@ app.project.save();
 
 def copy_template_aep(project_path: pathlib.Path, project_name: str):
     """Copies the blank .aep template to the new project directory."""
-    # Find the template relative to this file
+    # it finds the template relative to this file
     template_path = pathlib.Path(__file__).parent / "templates" / "blank.aep"
     dest_path = project_path / "project" / f"{project_name}.aep"
     
     if not template_path.exists():
-        # For development, if blank.aep isn't there, create a placeholder
+        # For development, if blank.aep isn't there, it create a placeholder
         template_path.parent.mkdir(parents=True, exist_ok=True)
         template_path.write_text("DUMMY AEP BINARY CONTENT")
         

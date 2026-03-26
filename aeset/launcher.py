@@ -5,8 +5,11 @@ import pathlib
 def launch_after_effects(aep_path: pathlib.Path, ae_version: str = "Adobe After Effects 2025"):
     """Launches After Effects with the specified .aep file."""
     try:
+        # Use resolve() to get absolute path
+        abs_path = str(aep_path.resolve())
         # Launch After Effects with the project file
-        subprocess.Popen(["open", "-a", ae_version, str(aep_path)])
+        # Sometimes 'open <file> -a <app>' is more reliable
+        subprocess.run(["open", abs_path, "-a", ae_version], check=True)
         return True
     except Exception as e:
         print(f"Error launching After Effects: {e}")
@@ -17,12 +20,18 @@ def run_jsx_via_applescript(jsx_path: pathlib.Path, ae_version: str = "Adobe Aft
     # Escape path for AppleScript
     script_path = str(jsx_path.absolute())
     
-    # AppleScript command
-    applescript = f'tell application "{ae_version}" to do script "{script_path}"'
+    # AppleScript command - activate first to ensure AE is responsive
+    applescript = f'''
+    tell application "{ae_version}"
+        activate
+        do script "{script_path}"
+    end tell
+    '''
     
     try:
         # Give AE a moment to open before sending the command
-        time.sleep(5) 
+        # 15 seconds might be safer for AE to fully load the project
+        time.sleep(15) 
         subprocess.run(["osascript", "-e", applescript], check=True)
         return True
     except subprocess.CalledProcessError as e:
