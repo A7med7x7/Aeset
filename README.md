@@ -4,7 +4,7 @@
 
 </div>
 
-![aeset brand](https://raw.githubusercontent.com/A7med7x7/Aeset/main/docs/images/aeset.png)
+![aeset brand](https://raw.githubusercontent.com/A7med7x7/Aeset/main/docs/images/terminal-feel.png)
 
 Every video editor or motion designer wastes 10–20 minutes at the start of every project doing the exact same thing: creating folders by hand, naming them consistently, opening After Effects, and setting up a new composition with the right resolution, framerate, and duration. It is not creative work. It is repetitive work. Multiply it by 50 projects a year and you have lost a full work week to folder creation and blank composition setup.
 
