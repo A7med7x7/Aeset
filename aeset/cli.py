@@ -10,7 +10,7 @@ from .launcher import launch_after_effects, run_jsx_via_applescript
 def main(no_launch):
     """Aeset — After Effects Project Scaffolding Tool."""
     
-    click.echo(click.style("\n🚀 Aeset — After Effects Project Scaffolder\n", fg="cyan", bold=True))
+    click.echo(click.style("\n Aeset — After Effects Project Scaffolder\n", fg="cyan", bold=True))
 
     # 1. Collect inputs
     project_name = questionary.text(
