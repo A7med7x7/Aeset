@@ -3,6 +3,9 @@
 # Aeset
 
 </div>
+
+![aeset brand](https://raw.githubusercontent.com/A7med7x7/Aeset/main/docs/images/aeset.png)
+
 Every video editor or motion designer wastes 10–20 minutes at the start of every project doing the exact same thing: creating folders by hand, naming them consistently, opening After Effects, and setting up a new composition with the right resolution, framerate, and duration. It is not creative work. It is repetitive work. Multiply it by 50 projects a year and you have lost a full work week to folder creation and blank composition setup.
 
 Aeset is a tool built to solve this for After Effects on macOS. It takes the "scaffolding" logic used by software developers and applies it to the motion design world.
