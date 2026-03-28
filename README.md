@@ -1,8 +1,37 @@
-# Aeset — After Effects Project Scaffolding Tool
+<div style=text-align:center;>
 
+# Aeset
+
+</div>
 Every video editor or motion designer wastes 10–20 minutes at the start of every project doing the exact same thing: creating folders by hand, naming them consistently, opening After Effects, and setting up a new composition with the right resolution, framerate, and duration. It is not creative work. It is repetitive work. Multiply it by 50 projects a year and you have lost a full work week to folder creation and blank composition setup.
 
 Aeset is a tool built to solve this for After Effects on macOS. It takes the "scaffolding" logic used by software developers and applies it to the motion design world.
+
+
+## Installation and Requirements
+
+### Installation
+Aeset can be installed via pip:
+```bash
+pip install aeset
+```
+
+### Requirements
+- macOS: AppleScript and the 'open' command are macOS-specific.
+- Adobe After Effects
+- Python 3.11+
+
+> [!NOTE] 
+> The tool is currently configured to target the 2025 version of After Effects, it might be buggy for different versions.
+
+### Usage
+
+Run the command
+```bash
+aeset
+```
+and then you're ready to scaffold your project.
+
 
 ## 1. What The Tool Does
 
