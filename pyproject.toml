@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "aeset"
-version = "0.1.0"
+version = "0.1.1"
 description = "A macOS CLI tool for After Effects project scaffolding"
 readme = "README.md"
 authors = [
