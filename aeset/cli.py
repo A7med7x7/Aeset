@@ -1,5 +1,9 @@
 import click
 import questionary
+from questionary import Style
+custom_style = Style([
+    ("questionmark", "fg:#00bcd4 bold"),  # Cyan color for the clapper board
+])
 import pathlib
 from datetime import datetime
 from .scaffold import create_project_folders, generate_jsx, copy_template_aep, generate_readme
@@ -10,12 +14,21 @@ from .launcher import launch_after_effects, run_jsx_via_applescript
 def main(no_launch):
     """Aeset — After Effects Project Scaffolding Tool."""
     
-    click.echo(click.style("\n Aeset — After Effects Project Scaffolder\n", fg="cyan", bold=True))
+    click.echo(click.style("""\n Aeset — After Effects Project Scaffolder\n
+     █████  ███████ ███████ ███████ ████████ 
+    ██   ██ ██      ██      ██         ██    
+    ███████ █████   ███████ █████      ██    
+    ██   ██ ██           ██ ██         ██    
+    ██   ██ ███████ ███████ ███████    ██    
+                                     
+    """, fg="cyan", bold=True))
 
     # 1. Collect inputs
     project_name = questionary.text(
         "Project name",
-        validate=lambda text: len(text) > 0 or "Project name cannot be empty."
+        validate=lambda text: len(text) > 0 or "Project name cannot be empty.",
+        qmark="🎬",
+        style=custom_style
     ).ask()
     
     if not project_name:
@@ -23,7 +36,9 @@ def main(no_launch):
 
     project_type = questionary.select(
         "Project type",
-        choices=["Commercial", "Personal", "Motion Test", "Music Video"]
+        choices=["Commercial", "Personal", "Motion Test", "Music Video"],
+        qmark="🎬",
+        style=custom_style
     ).ask()
 
     resolution = questionary.select(
@@ -33,33 +48,45 @@ def main(no_launch):
             "3840×2160 (4K)",
             "1080×1080 (Square / Instagram)",
             "1080×1920 (Vertical / Reels)"
-        ]
+        ],
+        qmark="🎬",
+        style=custom_style
     ).ask()
     # Clean up resolution choice
     resolution = resolution.split(" ")[0]
 
     fps = questionary.select(
         "Frame rate",
-        choices=["24", "25", "30", "60"]
+        choices=["24", "25", "30", "60"],
+        qmark="🎬",
+        style=custom_style
     ).ask()
     fps = int(fps)
 
     duration = questionary.text(
         "Duration (seconds)",
         default="10",
-        validate=lambda text: text.isdigit() or "Duration must be an integer."
+        validate=lambda text: text.isdigit() or "Duration must be an integer.",
+        qmark="🎬",
+        style=custom_style
     ).ask()
     duration = int(duration)
 
     color_space = questionary.select(
         "Color space",
-        choices=["sRGB", "Rec. 709", "ACES"]
+        choices=["sRGB", "Rec. 709", "ACES"],
+        qmark="🎬",
+        style=custom_style
     ).ask()
 
     # Create project directory
     project_path = pathlib.Path.cwd() / project_name
     if project_path.exists():
-        if not questionary.confirm(f"Directory {project_name} already exists. Overwrite?").ask():
+        if not questionary.confirm(
+            f"Directory {project_name} already exists. Overwrite?",
+            qmark="🎬",
+            style=custom_style
+        ).ask():
             click.echo("Aborted.")
             return
 
