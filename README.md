@@ -2,6 +2,9 @@
 
 # Aeset
 
+[![PyPI version](https://img.shields.io/pypi/v/aeset?color=blue)](https://pypi.org/project/aeset/)
+[![Status](https://img.shields.io/badge/status-beta-orange)](#)
+
 </div>
 
 ![aeset brand](https://raw.githubusercontent.com/A7med7x7/Aeset/main/docs/images/terminal-feel.png)
