@@ -8,7 +8,7 @@ import questionary
 from questionary import Style
 
 from .launcher import detect_ae_version, launch_after_effects, run_jsx_via_applescript
-from .scaffold import copy_template_aep, create_project_folders, generate_jsx, generate_readme
+from .scaffold import create_project_folders, generate_jsx, generate_readme
 
 custom_style = Style([
     ("questionmark", "fg:#00bcd4 bold"),
@@ -125,9 +125,6 @@ def main(no_launch):
     click.echo(f"✔ Creating {project_name}/...")
     create_project_folders(project_path)
 
-    click.echo("✔ Copying project template...")
-    aep_path = copy_template_aep(project_path, project_name)
-
     click.echo("✔ Generating composition config...")
     jsx_path = generate_jsx(project_path, project_name, config)
 
@@ -136,11 +133,20 @@ def main(no_launch):
 
     if not no_launch:
         click.echo(f"✔ Opening After Effects ({ae_version})...")
-        if launch_after_effects(aep_path, ae_version):
+        if launch_after_effects(ae_version):
             click.echo("✔ Waiting for After Effects to be ready...")
-            run_jsx_via_applescript(jsx_path, ae_version)
+            if run_jsx_via_applescript(jsx_path, ae_version):
+                click.echo("✔ Project and composition initialized in After Effects.")
+            else:
+                click.echo(click.style("✘ Could not run setup script in After Effects.", fg="yellow"))
         else:
             click.echo(click.style("✘ Could not launch After Effects automatically.", fg="red"))
+    else:
+        click.echo(click.style(
+            "ℹ To initialize the project later, open After Effects and run:\n"
+            f"  File > Scripts > Run Script File... -> select {project_name}/project/setup.jsx",
+            fg="yellow",
+        ))
 
     click.echo(click.style(f"\n🎉 Done! Project {project_name} is ready.\n", fg="green", bold=True))
 
