@@ -5,9 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>aeset — After Effects project scaffolding for macOS</title>
 <meta name="description" content="A macOS CLI tool that scaffolds After Effects projects: folders, comps, and project bins, generated in seconds instead of by hand.">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="aeset — After Effects project scaffolding for macOS">
+<meta property="og:description" content="A macOS CLI tool that scaffolds After Effects projects: folders, comps, and project bins, generated in seconds instead of by hand.">
+<meta property="og:url" content="https://aeset.stack42.tech/">
+<meta property="og:image" content="https://aeset.stack42.tech/images/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="aeset — After Effects project scaffolding for macOS">
+<meta name="twitter:description" content="A macOS CLI tool that scaffolds After Effects projects: folders, comps, and project bins, generated in seconds instead of by hand.">
+<meta name="twitter:image" content="https://aeset.stack42.tech/images/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:wght@400;500&family=Unbounded:wght@900&display=swap" rel="stylesheet">
 <style>
   :root{
     --black:#0D0D0D;
@@ -335,9 +347,11 @@
 <header>
   <nav>
     <div class="logo">
-      <svg width="26" height="26" viewBox="0 0 80 80" fill="none">
-        <path d="M2 2 V78 H78" stroke="#F5F4F0" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="2" cy="2" r="6" fill="#EF9F27"/>
+      <svg width="28" height="28" viewBox="0 0 100 100" role="img" aria-label="aeset icon">
+        <defs><clipPath id="navAeClip"><rect x="50" y="0" width="50" height="100"/></clipPath></defs>
+        <rect width="100" height="100" rx="22" fill="var(--black)"/>
+        <text x="50" y="68" text-anchor="middle" font-family="'Unbounded', sans-serif" font-weight="900" font-size="52" fill="var(--paper)">æ</text>
+        <text x="50" y="68" text-anchor="middle" font-family="'Unbounded', sans-serif" font-weight="900" font-size="52" fill="var(--amber)" clip-path="url(#navAeClip)">æ</text>
       </svg>
       <span class="logo-word">aeset</span>
     </div>
